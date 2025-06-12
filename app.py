@@ -28,7 +28,7 @@ if query:
 
     context = "\n\n".join([c["text"] + f"\nSource: {c['url']}" for c in top_chunks])
 
-    prompt = f"Answer the following question using the context provided. Be concise.\n\nContext:\n{context}\n\nQuestion: {query}\nAnswer:"
+    prompt = f"Answer the following question using the context provided. Be comprehensive.\n\nContext:\n{context}\n\nQuestion: {query}\nAnswer:"
 
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
