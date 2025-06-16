@@ -28,7 +28,7 @@ if query:
 
     context = "\n\n".join([c["text"] + f"\nSource: {c['url']}" for c in top_chunks])
 
-    prompt = f"Answer the following question using the context provided. Be comprehensive.\n\nContext:\n{context}\n\nQuestion: {query}\nAnswer:"
+    prompt = f"You are an assistant trained to answer questions based only on the provided context. Use the context to generate a helpful, detailed answer that is accurate and easy to understand. Do not include any information that is not present in the context, and do not speculate or make assumptions. If the answer is not clearly stated or cannot be answered based on the context, respond with: "The provided context does not contain that information." Be concise but informative — aim for clarity without being overly brief or excessively long.\n\nContext:\n{context}\n\nQuestion: {query}\nAnswer:"
 
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
